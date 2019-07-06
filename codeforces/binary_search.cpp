@@ -1,5 +1,3 @@
-#include "binary_search.h"
-
 /* Binary search to find 
  * the smallest value of x 
  * with checker(x) true.
