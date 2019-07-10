@@ -9,6 +9,15 @@ typedef long double ld;
 #define sum(a) accumulate(begin(a), end(a), 0ll)
 
 template<typename T>
+inline ostream& operator << (ostream& os, const vector<T>& v) {
+    for (const auto& e: v) {
+        cout << e << " ";
+    }
+    cout << "\n";
+    return os;
+}
+
+template<typename T>
 inline istream& operator >> (istream& is, vector<T>& v) {
     for (auto& e: v) {
         cin >> e;
@@ -19,19 +28,15 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    string s, t, w;
-    cin >> s >> t;
-    cout << s << " " << t << "\n";
     int n;
     cin >> n;
-    forn(i, n) {
-        cin >> w;
-        if (w == s) {
-            cin >> s;
-        } else {
-            cin >> t;
-        }
-        cout << s << " " << t << "\n";
+    vector<int> a(n);
+    cin >> a;
+    vector<int> b(n);
+    b[n - 1] = a[n - 1];
+    for (int i = n - 1; i > 0; --i) {
+        b[i - 1] = a[i - 1] + a[i];
     }
+    cout << b;
     return 0;
 }

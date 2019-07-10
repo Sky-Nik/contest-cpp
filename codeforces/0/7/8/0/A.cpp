@@ -19,19 +19,21 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    string s, t, w;
-    cin >> s >> t;
-    cout << s << " " << t << "\n";
     int n;
     cin >> n;
-    forn(i, n) {
-        cin >> w;
-        if (w == s) {
-            cin >> s;
+    vector<int> x(n << 1);
+    cin >> x;
+    vector<int> cnt(n);
+    int c = 0, m = 0;
+    for (auto xi: x) {
+        ++cnt[xi - 1];
+        if (cnt[xi - 1] == 1) {
+            ++c;
         } else {
-            cin >> t;
+            --c;
         }
-        cout << s << " " << t << "\n";
+        m = max(m, c);
     }
+    cout << m;
     return 0;
 }

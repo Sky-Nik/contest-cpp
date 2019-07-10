@@ -16,22 +16,24 @@ inline istream& operator >> (istream& is, vector<T>& v) {
     return is;
 }
 
+bool is_prime(int n) {
+    for (int d = 2; d < n && d * d <= n; ++d) {
+        if (n % d == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    string s, t, w;
-    cin >> s >> t;
-    cout << s << " " << t << "\n";
     int n;
     cin >> n;
-    forn(i, n) {
-        cin >> w;
-        if (w == s) {
-            cin >> s;
-        } else {
-            cin >> t;
+    for (int m = 1; m <= 1000; ++m) {
+        if (!is_prime(n * m + 1)) {
+            cout << m;
+            return 0;
         }
-        cout << s << " " << t << "\n";
     }
-    return 0;
 }

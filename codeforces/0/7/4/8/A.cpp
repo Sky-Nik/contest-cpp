@@ -19,19 +19,16 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    string s, t, w;
-    cin >> s >> t;
-    cout << s << " " << t << "\n";
-    int n;
-    cin >> n;
-    forn(i, n) {
-        cin >> w;
-        if (w == s) {
-            cin >> s;
-        } else {
-            cin >> t;
-        }
-        cout << s << " " << t << "\n";
+    int n, m, k;
+    cin >> n >> m >> k;
+    --k;
+    cout << (k / (m << 1)) + 1 << " ";
+    k %= (m << 1);
+    cout << k / 2 + 1 << " ";
+    if (k & 1) {
+        cout << "R";
+    } else {
+        cout << "L";
     }
     return 0;
 }

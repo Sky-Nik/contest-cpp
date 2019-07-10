@@ -19,19 +19,12 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    string s, t, w;
-    cin >> s >> t;
-    cout << s << " " << t << "\n";
     int n;
     cin >> n;
-    forn(i, n) {
-        cin >> w;
-        if (w == s) {
-            cin >> s;
-        } else {
-            cin >> t;
-        }
-        cout << s << " " << t << "\n";
+    if (n & 1) {
+        cout << "contest";
+    } else {
+        cout << "home";
     }
     return 0;
 }
