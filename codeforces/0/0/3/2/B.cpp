@@ -20,6 +20,17 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+    string s, a;
+    cin >> s;
+    forn(i, s.length()) {
+        if (s[i] == '.') {
+            a += '0';
+        } elif (s[i++ + 1] == '.') {
+            a += '1';
+        } else {
+            a += '2';
+        }
+    }
+    cout << a;
     return 0;
 }

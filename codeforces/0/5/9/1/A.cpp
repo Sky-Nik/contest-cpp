@@ -6,7 +6,6 @@ typedef long double ld;
 
 #define elif else if
 #define forn(i, n) for(int i = 0; i < n; ++i)
-#define fore(i, l, r) for(int i = l; i < r; ++i)
 #define sum(a) accumulate(begin(a), end(a), 0ll)
 
 template<typename T>
@@ -20,6 +19,8 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+    long double l, p, q;
+    cin >> l >> p >> q;
+    cout << fixed << setprecision(9) << l * p / (p + q);
     return 0;
 }

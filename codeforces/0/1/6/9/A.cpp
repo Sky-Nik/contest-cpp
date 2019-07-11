@@ -20,6 +20,11 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+    int n, a, b;
+    cin >> n >> a >> b;
+    vector<int> h(n);
+    cin >> h;
+    sort(begin(h), end(h));
+    cout << h[b] - h[b - 1];
     return 0;
 }

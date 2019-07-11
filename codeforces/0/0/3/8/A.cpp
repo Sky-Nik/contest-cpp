@@ -20,6 +20,12 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+    int n;
+    cin >> n;
+    vector<int> d(n - 1);
+    cin >> d;
+    int a, b;
+    cin >> a >> b;
+    cout << accumulate(begin(d) + a - 1, begin(d) + b - 1, 0ll);
     return 0;
 }

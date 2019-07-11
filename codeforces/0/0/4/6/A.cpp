@@ -20,6 +20,12 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+    int n;
+    cin >> n;
+    int c = 0;
+    fore(i, 1, n) {
+        c = (c + i) % n;
+        cout << c + 1 << " ";
+    }
     return 0;
 }
