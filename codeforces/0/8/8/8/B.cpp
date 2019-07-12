@@ -20,15 +20,22 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll n;
+    int n;
     cin >> n;
-    ++n;
-    if (n == 1ll) {
-        cout << 0;
-    } elif (n & 1ll) {
-        cout << n;
-    } else {
-        cout << (n >> 1ll);
+    int u = 0, d = 0, l = 0, r = 0;
+    forn(i, n) {
+        char c;
+        cin >> c;
+        if (c == 'U') {
+            ++u;
+        } elif (c == 'R') {
+            ++r;
+        } elif (c == 'D') {
+            ++d;
+        } else {
+            ++l;
+        }
     }
+    cout << ((min(l, r) + min(u, d)) << 1);
     return 0;
 }

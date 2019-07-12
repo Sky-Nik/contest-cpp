@@ -20,15 +20,21 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll n;
+    int n;
     cin >> n;
-    ++n;
-    if (n == 1ll) {
-        cout << 0;
-    } elif (n & 1ll) {
-        cout << n;
-    } else {
-        cout << (n >> 1ll);
+    map<int, int> mp;
+    forn(i, n) {
+        int ai;
+        cin >> ai;
+        mp[ai] = i;
     }
+    int m = n, idx = -1;
+    for (const auto& [key, val]: mp) {
+        if (val < m) {
+            m = val;
+            idx = key;
+        }
+    }
+    cout << idx;
     return 0;
 }

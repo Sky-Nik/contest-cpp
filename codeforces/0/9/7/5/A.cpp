@@ -20,15 +20,17 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll n;
+    int n;
     cin >> n;
-    ++n;
-    if (n == 1ll) {
-        cout << 0;
-    } elif (n & 1ll) {
-        cout << n;
-    } else {
-        cout << (n >> 1ll);
+    set<string> w;
+    forn(i, n) {
+        string s;
+        cin >> s;
+        set<char> sc(begin(s), end(s));
+        vector<char> vc(begin(sc), end(sc));
+        sort(begin(vc), end(vc));
+        w.insert(string(begin(vc), end(vc)));
     }
+    cout << size(w);
     return 0;
 }

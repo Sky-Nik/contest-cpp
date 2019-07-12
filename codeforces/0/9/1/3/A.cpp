@@ -20,15 +20,14 @@ inline istream& operator >> (istream& is, vector<T>& v) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll n;
-    cin >> n;
-    ++n;
-    if (n == 1ll) {
-        cout << 0;
-    } elif (n & 1ll) {
-        cout << n;
-    } else {
-        cout << (n >> 1ll);
+    ll n, m, pow = 1;
+    cin >> n >> m;
+    forn(i, n) {
+        pow <<= 1;
+        if (pow > m) {
+            break;
+        }
     }
+    cout << m % pow;
     return 0;
 }
