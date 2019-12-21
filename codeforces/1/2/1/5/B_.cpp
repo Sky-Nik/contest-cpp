@@ -11,7 +11,7 @@ int main() {
     vector<int> a(n);
     for (auto& ai:a) cin >> ai;
     vector<vector<int>> dp(2,{0});
-    for (const auto& ai:a) {
+    for (auto& ai:a) {
         if (ai<0) {
             auto t=dp[0].back();
             dp[0].push_back(dp[1].back()+1);
