@@ -1,51 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long ll;
-typedef long double ld;
+void print_soroban(int n) {
+    if (n >= 5)
+        cout << "-O|";
+    else
+        cout << "O-|";
 
-typedef pair<int, int> pii;
-typedef pair<ll, int> pli;
-typedef pair<int, ll> pil;
-typedef pair<ll, ll> pll;
+    n %= 5;
 
-#define elif else if
-#define forn(_i, _n) for(int _i = 0; _i < _n; ++_i)
-#define fore(_i, _l, _r) for(int _i = _l; _i < _r; ++_i)
-#define sum(a) accumulate(begin(a), end(a), 0ll)
+    for (int i = 0; i < n; ++i)
+        cout << "O";
 
-template<typename T>
-inline istream& operator >> (istream& is, vector<T>& v) {
-    for (auto& e: v) {
-        cin >> e;
-    }
-    return is;
+    cout << "-";
+
+    for (int i = n; i < 4; ++i)
+        cout << "O";
+
+    cout << "\n";
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
+
     int n;
     cin >> n;
-    if (n == 0) {
-    	cout << "O-|-OOOO\n";
+    if (!n) {
+        cout << "O-|-OOOO";
     }
-    while (n > 0) {
-    	if (n % 10 >= 5) {
-    		cout << "-O";
-    	}  else {
-    		cout << "O-";
-    	}
-    	cout << "|";
-    	forn(i, n % 5) {
-    		cout << "O";
-    	}
-    	cout << "-";
-    	forn(i, 4 - n % 5) {
-    		cout << "O";
-    	}
-    	cout << "\n";
-    	n /= 10;
+
+    while (n) {
+        print_soroban(n % 10);
+        n /= 10;
     }
+
     return 0;
 }
