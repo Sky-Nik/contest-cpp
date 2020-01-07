@@ -1,36 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long ll;
-typedef long double ld;
-
-typedef pair<int, int> pii;
-typedef pair<ll, int> pli;
-typedef pair<int, ll> pil;
-typedef pair<ll, ll> pll;
-
-#define elif else if
-#define forn(_i, _n) for(int _i = 0; _i < static_cast<int>(_n); ++_i)
-#define fore(_i, _l, _r) for(int _i = _l; _i < _r; ++_i)
-#define sum(a) accumulate(begin(a), end(a), 0ll)
-
-template<typename T>
-inline istream& operator >> (istream& is, vector<T>& v) {
-    for (auto& e: v) {
-        cin >> e;
-    }
-    return is;
-}
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    int n, m, aij, answer = 4;
+
+    int n, m;
     cin >> n >> m;
-    forn(i, n) forn(j, m) {
-        cin >> aij;
-    	if (aij && (i == 0 || i + 1 == n || j == 0 || j + 1 == m)) answer = 2;
-    }
-    cout << answer;
+    vector<vector<int>> a(n, vector<int>(m));
+    for (auto& r: a)
+        for (auto& c: r)
+            cin >> c;
+
+    bool two = false; 
+    for (int r = 0; r < n; ++r)
+        two |= a[r][0];
+    for (int r = 0; r < n; ++r)
+        two |= a[r][m - 1];
+    for (int c = 0; c < m; ++c)
+        two |= a[0][c];
+    for (int c = 0; c < m; ++c)
+        two |= a[n - 1][c];
+
+    if (two)
+        cout << 2;
+    else
+        cout << 4;
+
     return 0;
 }
