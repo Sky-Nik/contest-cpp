@@ -14,19 +14,6 @@ typedef pair<ll, ll> pll;
 #define fore(_i, _l, _r) for(int _i = _l; _i < _r; ++_i)
 #define sum(a) accumulate(begin(a), end(a), 0ll)
 
-template<typename U, typename V>
-inline istream& operator >> (istream& is, pair<U, V>& p) {
-    is >> p.first >> p.second;
-    return is;
-}
-
-template<typename U, typename V>
-inline ostream& operator << (ostream& os, pair<U, V>& p) {
-    os <<  p.first << " " << p.second;
-    os << "\n";
-    return os;
-}
-
 template<typename T>
 inline istream& operator >> (istream& is, vector<T>& v) {
     for (auto& e: v) {

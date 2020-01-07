@@ -5,7 +5,7 @@ inline istream& operator >> (istream& is, pair<U, V>& p) {
 }
 
 template<typename U, typename V>
-inline ostream& operator << (ostream& os, pair<U, V>& p) {
+inline ostream& operator << (ostream& os, const pair<U, V>& p) {
     os <<  p.first << " " << p.second;
     os << "\n";
     return os;
@@ -25,5 +25,14 @@ inline ostream& operator << (ostream& os, const vector<T>& v) {
         os << e << " ";
     }
     os << "\n";
+    return os;
+}
+
+template<typename T>
+inline ostream& operator << (ostream& os, const deque<T>& v) {
+    for (const auto& e: v) {
+        os << e << " ";
+    }
+     os << "\n";
     return os;
 }
